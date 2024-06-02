@@ -1,0 +1,51 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.nftname))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// Create a variable to hold your NFTs
+let NFT=[];
+
+// This function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT(nftname, artist_name, description, rarity) {
+    const nft = {
+        nftname:nftname,
+        artist_name:artist_name,
+        description:description,
+        rarity:rarity
+    };
+    NFT.push(nft);
+}
+
+// Create a "loop" that will go through an "array" of NFTs
+// and print their metadata with console.log()
+function listNFTs() {
+    for (let i=0;i<NFT.length;i++){
+        console.log(`NFT_Name: ${NFT[i].nftname}`);
+        console.log(`Artist_name: ${NFT[i].artist_name}`);
+        console.log(`Description: ${NFT[i].description}`);
+        console.log(`Rarity: ${NFT[i].rarity}`);
+        console.log('----------------------------------');
+    }
+}
+
+// Print the total number of NFTs we have minted to the console
+function getTotalSupply(){
+    return NFT.length;
+}
+
+// Call your functions below this line
+mintNFT("LM10","Samir","Messi's iconic celebration","Rare");
+mintNFT("CR7","Ayush","Ronaldo doing sui celebration","Legendary");
+mintNFT("Neymar11","Monica","Doing rainbow Flick","Epic");
+mintNFT("VardyBOY","Pratik","Destroying Flag in the celebration ","Mythic");
+
+listNFTs();
+console.log("Total Supply:"+ getTotalSupply());
